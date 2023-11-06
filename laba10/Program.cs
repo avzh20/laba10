@@ -11,23 +11,22 @@ class ФормировательФайлаДанных
     private void СгенерироватьДанные()
     {
         Random random = new Random();
-        int размер = random.Next(1, 2000); // Сгенерировать случайный размер вектора
+        int размер = random.Next(1, 2000);
         if (размер % 2 == 0)
         {
             размер += 1;
         }
-        int i = random.Next(0, размер); // Сгенерировать случайный индекс i
+        int i = random.Next(0, размер);
         if (i % 2 == 0)
         {
             i += 1;
         }
-        int j = random.Next(0, размер); // Сгенерировать случайный индекс j
+        int j = random.Next(0, размер);
         if (j % 2 == 0)
         {
             j += 1;
         }
 
-        // Убедиться, что i и j различны
         while (i == j)
         {
             j = random.Next(0, размер);
@@ -37,20 +36,18 @@ class ФормировательФайлаДанных
             }
         }
 
-        int A = random.Next(-500, 500); // Сгенерировать случайное значение для A
+        int A = random.Next(-500, 500); 
         if (A % 2 == 0)
         {
             A += 1;
         }
 
-        // Сгенерировать элементы вектора
         int[] элементы = new int[размер];
         for (int k = 0; k < размер; k++)
         {
             элементы[k] = random.Next(-500, 500);
         }
 
-        // Записать данные в файл
         using (StreamWriter writer = new StreamWriter("Inlet.in"))
         {
             writer.WriteLine($"{размер} {i} {j} {A}");
